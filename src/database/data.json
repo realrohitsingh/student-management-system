@@ -1,0 +1,372 @@
+{
+  "students": [
+    {
+      "id": "3d09",
+      "name": "Rohit Singh",
+      "rollNumber": "12500221065",
+      "email": "rohitsingh888399@gmail.com",
+      "phone": "9693376562",
+      "class": "12A",
+      "dateOfBirth": "2002-04-02",
+      "address": "Jamshedpur, Jharkhand",
+      "attendance": 100,
+      "totalDays": 180,
+      "presentDays": 180,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 97,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 98,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 99,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 85,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 93,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:15:06.144Z",
+      "updatedAt": "2025-10-08T16:15:06.144Z"
+    },
+    {
+      "id": "4e10",
+      "name": "Priya Sharma",
+      "rollNumber": "12500221066",
+      "email": "priya.sharma@gmail.com",
+      "phone": "9876543210",
+      "class": "12A",
+      "dateOfBirth": "2002-07-15",
+      "address": "Mumbai, Maharashtra",
+      "attendance": 95.5,
+      "totalDays": 180,
+      "presentDays": 172,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 92,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 89,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 94,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 88,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 96,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:20:00.000Z",
+      "updatedAt": "2025-10-08T16:20:00.000Z"
+    },
+    {
+      "id": "5f11",
+      "name": "Arjun Patel",
+      "rollNumber": "12500221067",
+      "email": "arjun.patel@gmail.com",
+      "phone": "8765432109",
+      "class": "12B",
+      "dateOfBirth": "2002-03-22",
+      "address": "Ahmedabad, Gujarat",
+      "attendance": 88.3,
+      "totalDays": 180,
+      "presentDays": 159,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 85,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 91,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 87,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 82,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 89,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:25:00.000Z",
+      "updatedAt": "2025-10-08T16:25:00.000Z"
+    },
+    {
+      "id": "6g12",
+      "name": "Sneha Reddy",
+      "rollNumber": "12500221068",
+      "email": "sneha.reddy@gmail.com",
+      "phone": "7654321098",
+      "class": "12A",
+      "dateOfBirth": "2002-11-08",
+      "address": "Hyderabad, Telangana",
+      "attendance": 92.8,
+      "totalDays": 180,
+      "presentDays": 167,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 94,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 96,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 90,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 93,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 95,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:30:00.000Z",
+      "updatedAt": "2025-10-08T16:30:00.000Z"
+    },
+    {
+      "id": "7h13",
+      "name": "Vikram Kumar",
+      "rollNumber": "12500221069",
+      "email": "vikram.kumar@gmail.com",
+      "phone": "6543210987",
+      "class": "12B",
+      "dateOfBirth": "2002-05-14",
+      "address": "Delhi, NCR",
+      "attendance": 89.4,
+      "totalDays": 180,
+      "presentDays": 161,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 88,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 84,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 86,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 91,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 87,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:35:00.000Z",
+      "updatedAt": "2025-10-08T16:35:00.000Z"
+    },
+    {
+      "id": "8i14",
+      "name": "Ananya Gupta",
+      "rollNumber": "12500221070",
+      "email": "ananya.gupta@gmail.com",
+      "phone": "5432109876",
+      "class": "12A",
+      "dateOfBirth": "2002-09-30",
+      "address": "Kolkata, West Bengal",
+      "attendance": 97.2,
+      "totalDays": 180,
+      "presentDays": 175,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 95,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 93,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 97,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 89,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 98,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:40:00.000Z",
+      "updatedAt": "2025-10-08T16:40:00.000Z"
+    },
+    {
+      "id": "9j15",
+      "name": "Rahul Verma",
+      "rollNumber": "12500221071",
+      "email": "rahul.verma@gmail.com",
+      "phone": "4321098765",
+      "class": "12B",
+      "dateOfBirth": "2002-01-18",
+      "address": "Lucknow, Uttar Pradesh",
+      "attendance": 83.9,
+      "totalDays": 180,
+      "presentDays": 151,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 78,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 82,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 85,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 79,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 81,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:45:00.000Z",
+      "updatedAt": "2025-10-08T16:45:00.000Z"
+    },
+    {
+      "id": "10k16",
+      "name": "Kavya Nair",
+      "rollNumber": "12500221072",
+      "email": "kavya.nair@gmail.com",
+      "phone": "3210987654",
+      "class": "12A",
+      "dateOfBirth": "2002-12-05",
+      "address": "Bangalore, Karnataka",
+      "attendance": 94.4,
+      "totalDays": 180,
+      "presentDays": 170,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 91,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 88,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 92,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 94,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 90,
+          "maxMarks": 100
+        }
+      ],
+      "createdAt": "2025-10-08T16:50:00.000Z",
+      "updatedAt": "2025-10-08T16:50:00.000Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": "1",
+      "name": "Physics"
+    },
+    {
+      "id": "2",
+      "name": "Mathematics"
+    },
+    {
+      "id": "3",
+      "name": "Chemistry"
+    },
+    {
+      "id": "4",
+      "name": "English"
+    },
+    {
+      "id": "5",
+      "name": "Computer Science"
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "name": "12A"
+    },
+    {
+      "id": "2",
+      "name": "12B"
+    }
+  ]
+}
