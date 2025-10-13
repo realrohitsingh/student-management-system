@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
     Alert,
     Badge,
@@ -7,78 +7,57 @@ import {
     Col,
     Form,
     InputGroup,
-    Modal,
     Row,
     Spinner,
     Table,
 } from "react-bootstrap";
-import { studentService } from "../services/studentService";
-import StudentDetails from "./StudentDetails";
-import StudentForm from "./StudentForm";
+import { useNavigate } from "react-router-dom";
+import { useStudentContext } from "./StudentContext";
 
 const StudentList = () => {
-    const [students, setStudents] = useState([]);
-    const [filteredStudents, setFilteredStudents] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [classFilter, setClassFilter] = useState("");
-    const [subjectFilter, setSubjectFilter] = useState("");
-    const [sortBy, setSortBy] = useState("name");
-    const [sortOrder, setSortOrder] = useState("asc");
-    const [showModal, setShowModal] = useState(false);
-    const [showDetailsModal, setShowDetailsModal] = useState(false);
-    const [selectedStudent, setSelectedStudent] = useState(null);
-    const [modalMode, setModalMode] = useState("add"); // 'add' or 'edit'
-    const [subjects, setSubjects] = useState([]);
-    const [classes, setClasses] = useState([]);
+    const {
+        students,
+        filteredStudents,
+        loading,
+        error,
+        searchTerm,
+        classFilter,
+        subjectFilter,
+        sortBy,
+        sortOrder,
+        subjects,
+        classes,
+        getAllStudents,
+        getSubjects,
+        getClasses,
+        deleteStudent,
+        setSearchTerm,
+        setClassFilter,
+        setSubjectFilter,
+        setSortBy,
+        setSortOrder,
+        setFilteredStudents,
+        clearError
+    } = useStudentContext();
 
-    useEffect(() => {
-        loadStudents();
-        loadSubjects();
-        loadClasses();
-    }, []);
+    const navigate = useNavigate();
+    const searchInputRef = useRef(null);
 
-    useEffect(() => {
-        filterAndSortStudents();
-    }, [students, searchTerm, classFilter, subjectFilter, sortBy, sortOrder]);
-
-    const loadStudents = async () => {
+    const loadData = async () => {
         try {
-            setLoading(true);
-            const data = await studentService.getAllStudents();
-            setStudents(data);
-            setError(null);
+            await Promise.all([
+                getAllStudents(),
+                getSubjects(),
+                getClasses()
+            ]);
         } catch (err) {
-            setError("Failed to load students. Please check if JSON Server is running.");
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    const loadSubjects = async () => {
-        try {
-            const data = await studentService.getSubjects();
-            setSubjects(data);
-        } catch (err) {
-            console.error("Failed to load subjects:", err);
-        }
-    };
-
-    const loadClasses = async () => {
-        try {
-            const data = await studentService.getClasses();
-            setClasses(data);
-        } catch (err) {
-            console.error("Failed to load classes:", err);
+            console.error("Failed to load data:", err);
         }
     };
 
     const filterAndSortStudents = () => {
         let filtered = [...students];
 
-        // Search filter
         if (searchTerm) {
             filtered = filtered.filter(
                 (student) =>
@@ -88,19 +67,16 @@ const StudentList = () => {
             );
         }
 
-        // Class filter
         if (classFilter) {
             filtered = filtered.filter((student) => student.class === classFilter);
         }
 
-        // Subject filter (students who have grades in the selected subject)
         if (subjectFilter) {
             filtered = filtered.filter((student) =>
                 student.grades.some((grade) => grade.subject === subjectFilter)
             );
         }
 
-        // Sorting
         filtered.sort((a, b) => {
             let aValue, bValue;
 
@@ -136,43 +112,41 @@ const StudentList = () => {
         setFilteredStudents(filtered);
     };
 
+    useEffect(() => {
+        loadData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        filterAndSortStudents();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [students, searchTerm, classFilter, subjectFilter, sortBy, sortOrder]);
+
     const calculateAverageGrade = (student) => {
         const totalGrades = student.grades.reduce((sum, grade) => sum + grade.grade, 0);
         return totalGrades / student.grades.length;
     };
 
     const handleAddStudent = () => {
-        setSelectedStudent(null);
-        setModalMode("add");
-        setShowModal(true);
+        navigate('/student/new');
     };
 
     const handleEditStudent = (student) => {
-        setSelectedStudent(student);
-        setModalMode("edit");
-        setShowModal(true);
+        navigate(`/student/${student.id}/edit`);
     };
 
     const handleViewStudent = (student) => {
-        setSelectedStudent(student);
-        setShowDetailsModal(true);
+        navigate(`/student/${student.id}`);
     };
 
     const handleDeleteStudent = async (id) => {
         if (window.confirm("Are you sure you want to delete this student?")) {
             try {
-                await studentService.deleteStudent(id);
-                await loadStudents();
+                await deleteStudent(id);
             } catch (err) {
-                setError("Failed to delete student");
-                console.error(err);
+                console.error("Failed to delete student:", err);
             }
         }
-    };
-
-    const handleStudentSaved = () => {
-        setShowModal(false);
-        loadStudents();
     };
 
     const getGradeColor = (grade) => {
@@ -200,16 +174,16 @@ const StudentList = () => {
     }
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid animate-fade-in">
             <Row className="mb-4">
                 <Col>
-                    <Card>
+                    <Card className="animate-slide-up">
                         <Card.Header>
-                            <h4 className="mb-0">Student Grade Management System</h4>
+                            <h4 className="mb-0 gradient-text">Student Grade Management System</h4>
                         </Card.Header>
                         <Card.Body>
                             {error && (
-                                <Alert variant="danger" dismissible onClose={() => setError(null)}>
+                                <Alert variant="danger" dismissible onClose={clearError}>
                                     {error}
                                 </Alert>
                             )}
@@ -217,11 +191,12 @@ const StudentList = () => {
                             {/* Search and Filter Controls */}
                             <Row className="mb-3">
                                 <Col md={4}>
-                                    <InputGroup>
+                                    <InputGroup className="animate-slide-up">
                                         <InputGroup.Text>
                                             <i className="bi bi-search"></i>
                                         </InputGroup.Text>
                                         <Form.Control
+                                            ref={searchInputRef}
                                             type="text"
                                             placeholder="Search students..."
                                             value={searchTerm}
@@ -358,40 +333,6 @@ const StudentList = () => {
                 </Col>
             </Row>
 
-            {/* Student Form Modal */}
-            <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>
-                        {modalMode === "add" ? "Add New Student" : "Edit Student"}
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <StudentForm
-                        student={selectedStudent}
-                        mode={modalMode}
-                        onSave={handleStudentSaved}
-                        onCancel={() => setShowModal(false)}
-                    />
-                </Modal.Body>
-            </Modal>
-
-            {/* Student Details Modal */}
-            <Modal show={showDetailsModal} onHide={() => setShowDetailsModal(false)} size="lg">
-                <Modal.Header closeButton>
-                    <Modal.Title>Student Details</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    {selectedStudent && (
-                        <StudentDetails
-                            student={selectedStudent}
-                            onEdit={() => {
-                                setShowDetailsModal(false);
-                                handleEditStudent(selectedStudent);
-                            }}
-                        />
-                    )}
-                </Modal.Body>
-            </Modal>
         </div>
     );
 };

@@ -1,8 +1,49 @@
-import React from "react";
-import { Badge, Button, Card, Col, Row, Table } from "react-bootstrap";
+import React, { useEffect, useRef, useState } from "react";
+import { Alert, Badge, Button, Card, Col, Row, Spinner, Table } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import { useStudentContext } from "./StudentContext";
 
-const StudentDetails = ({ student, onEdit }) => {
+const StudentDetails = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    const {
+        selectedStudent,
+        loading,
+        error,
+        getStudentById,
+        clearError
+    } = useStudentContext();
+
+    const [student, setStudent] = useState(null);
+    const detailsRef = useRef(null);
+
+    useEffect(() => {
+        const loadStudent = async () => {
+            try {
+                if (id) {
+                    const studentData = await getStudentById(id);
+                    setStudent(studentData);
+                }
+            } catch (err) {
+                console.error("Failed to load student:", err);
+            }
+        };
+
+        loadStudent();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [id]);
+
+    const handleEdit = () => {
+        navigate(`/student/${id}/edit`);
+    };
+
+    const handleBack = () => {
+        navigate('/');
+    };
+
     const calculateAverageGrade = () => {
+        if (!student) return 0;
         const totalGrades = student.grades.reduce((sum, grade) => sum + grade.grade, 0);
         return totalGrades / student.grades.length;
     };
@@ -26,18 +67,49 @@ const StudentDetails = ({ student, onEdit }) => {
         return new Date(dateString).toLocaleDateString();
     };
 
+    if (loading) {
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{ height: "400px" }}>
+                <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            </div>
+        );
+    }
+
+    if (!student) {
+        return (
+            <div className="container-fluid">
+                <Alert variant="warning">
+                    Student not found.
+                </Alert>
+            </div>
+        );
+    }
+
     const averageGrade = calculateAverageGrade();
 
     return (
-        <div>
+        <div ref={detailsRef} className="container-fluid animate-fade-in">
+            {error && (
+                <Alert variant="danger" dismissible onClose={clearError}>
+                    {error}
+                </Alert>
+            )}
+
             <Row className="mb-4">
                 <Col>
-                    <Card>
+                    <Card className="animate-slide-up">
                         <Card.Header className="d-flex justify-content-between align-items-center">
-                            <h4 className="mb-0">{student.name}</h4>
-                            <Button variant="primary" onClick={onEdit}>
-                                Edit Student
-                            </Button>
+                            <h4 className="mb-0 gradient-text">{student.name}</h4>
+                            <div>
+                                <Button variant="secondary" onClick={handleBack} className="me-2">
+                                    Back to List
+                                </Button>
+                                <Button variant="primary" onClick={handleEdit}>
+                                    Edit Student
+                                </Button>
+                            </div>
                         </Card.Header>
                         <Card.Body>
                             <Row>

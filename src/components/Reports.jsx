@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Alert, Badge, Button, Card, Col, Row, Spinner, Table } from "react-bootstrap";
-import { studentService } from "../services/studentService";
+import { useStudentContext } from "./StudentContext";
 
 const Reports = () => {
+    const {
+        loading,
+        error,
+        getTopStudents,
+        getSubjectAverages,
+        getAttendanceStats,
+        clearError
+    } = useStudentContext();
+
     const [topStudents, setTopStudents] = useState([]);
     const [subjectAverages, setSubjectAverages] = useState({});
     const [attendanceStats, setAttendanceStats] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const reportsRef = useRef(null);
 
     useEffect(() => {
+        const loadReports = async () => {
+            try {
+                const [topStudentsData, subjectAveragesData, attendanceStatsData] = await Promise.all([
+                    getTopStudents(5),
+                    getSubjectAverages(),
+                    getAttendanceStats(),
+                ]);
+
+                setTopStudents(topStudentsData);
+                setSubjectAverages(subjectAveragesData);
+                setAttendanceStats(attendanceStatsData);
+            } catch (err) {
+                console.error("Failed to load reports:", err);
+            }
+        };
+
         loadReports();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const loadReports = async () => {
-        try {
-            setLoading(true);
-            setError(null);
-
-            const [topStudentsData, subjectAveragesData, attendanceStatsData] = await Promise.all([
-                studentService.getTopStudents(5),
-                studentService.getSubjectAverages(),
-                studentService.getAttendanceStats(),
-            ]);
-
-            setTopStudents(topStudentsData);
-            setSubjectAverages(subjectAveragesData);
-            setAttendanceStats(attendanceStatsData);
-        } catch (err) {
-            setError("Failed to load reports. Please check if JSON Server is running.");
-            console.error(err);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const getGradeColor = (grade) => {
         if (grade >= 90) return "success";
@@ -60,19 +63,19 @@ const Reports = () => {
     }
 
     return (
-        <div className="container-fluid">
+        <div ref={reportsRef} className="container-fluid animate-fade-in">
             {error && (
-                <Alert variant="danger" dismissible onClose={() => setError(null)}>
+                <Alert variant="danger" dismissible onClose={clearError}>
                     {error}
                 </Alert>
             )}
 
             <Row className="mb-4">
                 <Col>
-                    <Card>
+                    <Card className="animate-slide-up">
                         <Card.Header className="d-flex justify-content-between align-items-center">
-                            <h4 className="mb-0">Academic Reports</h4>
-                            <Button variant="primary" onClick={loadReports}>
+                            <h4 className="mb-0 gradient-text">Academic Reports</h4>
+                            <Button variant="primary" onClick={() => window.location.reload()}>
                                 Refresh Reports
                             </Button>
                         </Card.Header>

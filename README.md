@@ -10,6 +10,7 @@ A comprehensive, full-stack Student Grade Management System built with React and
 ## 🌟 Features
 
 ### 📚 **Student Management**
+
 - **Complete CRUD Operations**: Add, view, edit, and delete student records
 - **Comprehensive Student Profiles**: Name, roll number, email, phone, class, date of birth, address
 - **Academic Tracking**: Subject-wise grades with customizable max marks
@@ -17,6 +18,7 @@ A comprehensive, full-stack Student Grade Management System built with React and
 - **Real-time Validation**: Form validation with error handling and user feedback
 
 ### 🔍 **Advanced Search & Filtering**
+
 - **Multi-criteria Search**: Search by name, roll number, or email
 - **Class-based Filtering**: Filter students by class (12A, 12B)
 - **Subject Filtering**: Show students with grades in specific subjects
@@ -24,6 +26,7 @@ A comprehensive, full-stack Student Grade Management System built with React and
 - **Real-time Results**: Instant filtering and sorting as you type
 
 ### 📊 **Comprehensive Reporting**
+
 - **Top 5 Students**: Ranked list of best performing students
 - **Subject-wise Analysis**: Average grades, highest/lowest scores per subject
 - **Attendance Statistics**: Overall attendance trends and distribution
@@ -31,6 +34,7 @@ A comprehensive, full-stack Student Grade Management System built with React and
 - **Visual Indicators**: Color-coded grades and attendance badges
 
 ### 🎨 **Modern User Interface**
+
 - **Responsive Design**: Works seamlessly on desktop, tablet, and mobile
 - **Bootstrap Components**: Professional and consistent UI/UX
 - **Interactive Tables**: Sortable and filterable data tables
@@ -41,6 +45,7 @@ A comprehensive, full-stack Student Grade Management System built with React and
 ## 🛠 Technology Stack
 
 ### **Frontend**
+
 - **React 19.1.1** - Modern React with latest features
 - **React Router DOM 7.9.3** - Client-side routing
 - **React Bootstrap 2.10.10** - UI component library
@@ -48,10 +53,12 @@ A comprehensive, full-stack Student Grade Management System built with React and
 - **Axios 1.12.2** - HTTP client for API calls
 
 ### **Backend**
+
 - **JSON Server 1.0.0** - REST API server
 - **RESTful API** - Standard HTTP methods (GET, POST, PUT, DELETE)
 
 ### **Development Tools**
+
 - **Vite 7.1.7** - Fast build tool and dev server
 - **ESLint 9.36.0** - Code linting and quality
 - **Concurrently 9.2.1** - Run multiple commands simultaneously
@@ -94,31 +101,35 @@ react-assignment/
 ## 🚀 Quick Start
 
 ### **Prerequisites**
+
 - Node.js (v16 or higher)
 - npm or yarn package manager
 
 ### **Installation**
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd react-assignment
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Start the application**
+
    ```bash
    # Option 1: Start both frontend and backend (Recommended)
    npm start
-   
+
    # Option 2: Start separately
    # Terminal 1: Start JSON Server
    npm run json-server
-   
+
    # Terminal 2: Start React App
    npm run dev
    ```
@@ -132,17 +143,20 @@ react-assignment/
 The system comes with **8 comprehensive student records** featuring:
 
 ### **Student Demographics**
+
 - **Geographic Diversity**: Students from 8 different Indian cities
 - **Class Distribution**: 5 students in 12A, 3 students in 12B
 - **Performance Range**: Average grades from 81.0% to 94.4%
 - **Attendance Range**: From 83.9% to 100% attendance
 
 ### **Academic Subjects**
+
 - Physics, Mathematics, Chemistry, English, Computer Science
 - Grade ranges: 78-99 across all subjects
 - Realistic performance variations
 
 ### **Sample Students**
+
 1. **Rohit Singh** (12A) - Top performer (94.4% average, 100% attendance)
 2. **Priya Sharma** (12A) - Excellent student (91.8% average, 95.5% attendance)
 3. **Arjun Patel** (12B) - Good student (86.6% average, 88.3% attendance)
@@ -155,6 +169,7 @@ The system comes with **8 comprehensive student records** featuring:
 ## 🔧 API Endpoints
 
 ### **Students**
+
 - `GET /students` - Get all students
 - `GET /students/:id` - Get student by ID
 - `POST /students` - Create new student
@@ -164,10 +179,12 @@ The system comes with **8 comprehensive student records** featuring:
 - `GET /students?class=12A` - Filter by class
 
 ### **Metadata**
+
 - `GET /subjects` - Get all subjects
 - `GET /classes` - Get all classes
 
 ### **Advanced Queries**
+
 - `GET /students?_sort=averageGrade&_order=desc` - Sort by average grade
 - `GET /students?attendance_gte=90` - Filter by attendance ≥ 90%
 
@@ -176,6 +193,7 @@ The system comes with **8 comprehensive student records** featuring:
 ### **Managing Students**
 
 #### **Adding a Student**
+
 1. Click "Add Student" button
 2. Fill in personal information (name, roll number, email, phone, class, date of birth, address)
 3. Set attendance information (present days, total days)
@@ -183,33 +201,39 @@ The system comes with **8 comprehensive student records** featuring:
 5. Click "Add Student" to save
 
 #### **Editing a Student**
+
 1. Click "Edit" button next to any student
 2. Modify the information in the form
 3. Click "Update Student" to save changes
 
 #### **Viewing Student Details**
+
 1. Click "View" button to see comprehensive student information
 2. View all grades, attendance, and performance metrics
 3. Click "Edit Student" to modify details
 
 #### **Deleting a Student**
+
 1. Click "Delete" button
 2. Confirm the deletion in the popup
 
 ### **Search and Filtering**
 
 #### **Search Functionality**
+
 - **Name Search**: Type student name to find specific students
 - **Roll Number Search**: Search by roll number
 - **Email Search**: Find students by email address
 - **Real-time Results**: Results update as you type
 
 #### **Filtering Options**
+
 - **Class Filter**: Select class (12A, 12B) to filter students
 - **Subject Filter**: Choose subject to show students with grades in that subject
 - **Combined Filters**: Use multiple filters simultaneously
 
 #### **Sorting Options**
+
 - **Sort by Name**: Alphabetical ordering
 - **Sort by Roll Number**: Numerical ordering
 - **Sort by Attendance**: Highest to lowest attendance
@@ -219,18 +243,21 @@ The system comes with **8 comprehensive student records** featuring:
 ### **Reports and Analytics**
 
 #### **Top 5 Students Report**
+
 - Ranked list of best performing students
 - Average grade calculations
 - Attendance correlation
 - Overall performance indicators
 
 #### **Subject-wise Analysis**
+
 - Average grades per subject
 - Highest and lowest scores
 - Total students per subject
 - Performance level indicators
 
 #### **Attendance Statistics**
+
 - Overall attendance trends
 - Attendance distribution (Excellent, Good, Average, Poor)
 - Class-wise attendance comparison
@@ -239,17 +266,20 @@ The system comes with **8 comprehensive student records** featuring:
 ## 🎨 User Interface Features
 
 ### **Responsive Design**
+
 - **Mobile-First**: Optimized for mobile devices
 - **Tablet Support**: Enhanced tablet experience
 - **Desktop Optimization**: Full-featured desktop interface
 
 ### **Interactive Components**
+
 - **Data Tables**: Sortable and filterable student lists
 - **Modal Forms**: Clean, focused editing experience
 - **Loading States**: Smooth loading indicators
 - **Error Handling**: User-friendly error messages
 
 ### **Visual Indicators**
+
 - **Color-coded Grades**: Green (90+), Yellow (80-89), Blue (70-79), Red (<70)
 - **Attendance Badges**: Visual attendance indicators
 - **Performance Levels**: Clear performance categorization
@@ -258,6 +288,7 @@ The system comes with **8 comprehensive student records** featuring:
 ## 🔧 Development
 
 ### **Available Scripts**
+
 ```bash
 npm run dev          # Start React development server
 npm run build        # Build for production
@@ -268,6 +299,7 @@ npm start           # Start both frontend and backend
 ```
 
 ### **Code Quality**
+
 - **ESLint Configuration**: Consistent code style
 - **React Hooks**: Modern React patterns
 - **Component Architecture**: Modular, reusable components
@@ -275,6 +307,7 @@ npm start           # Start both frontend and backend
 - **Error Handling**: Comprehensive error management
 
 ### **Performance Optimizations**
+
 - **Lazy Loading**: Components loaded on demand
 - **Efficient Filtering**: Client-side filtering for better performance
 - **Optimized Re-renders**: React best practices
@@ -283,18 +316,22 @@ npm start           # Start both frontend and backend
 ## 🛠 Customization
 
 ### **Adding New Subjects**
+
 1. Update the `subjects` array in `src/database/data.json`
 2. The system will automatically include the new subject in forms and filters
 
 ### **Adding New Classes**
+
 1. Update the `classes` array in `src/database/data.json`
 2. New classes will appear in the class filter dropdown
 
 ### **Modifying Grade Scales**
+
 1. Update the `maxMarks` field in student grade objects
 2. Modify the color-coding logic in components if needed
 
 ### **Customizing Reports**
+
 1. Modify the report generation logic in `Reports.jsx`
 2. Add new metrics and calculations
 3. Customize the visual presentation
@@ -304,26 +341,31 @@ npm start           # Start both frontend and backend
 ### **Common Issues**
 
 #### **"Failed to load students" Error**
+
 - **Cause**: JSON Server not running
 - **Solution**: Start JSON Server with `npm run json-server`
 - **Check**: Ensure port 3001 is available
 
 #### **CORS Issues**
+
 - **Cause**: Cross-origin request problems
 - **Solution**: JSON Server handles CORS automatically
 - **Check**: Verify API endpoints are accessible
 
 #### **Port Conflicts**
+
 - **JSON Server**: Runs on port 3001
 - **React Dev Server**: Runs on port 5173
 - **Solution**: Change ports in package.json scripts if needed
 
 #### **Build Issues**
+
 - **Cause**: Dependency conflicts
 - **Solution**: Delete `node_modules` and run `npm install`
 - **Check**: Ensure Node.js version compatibility
 
 ### **Performance Tips**
+
 - Use search and filter features for large datasets
 - Reports are generated on-demand for better performance
 - Consider pagination for very large student lists
@@ -332,6 +374,7 @@ npm start           # Start both frontend and backend
 ## 📈 Future Enhancements
 
 ### **Planned Features**
+
 - **User Authentication**: Login/logout functionality
 - **Role-based Access**: Teacher/Admin permissions
 - **Data Export**: PDF/Excel report generation
@@ -342,6 +385,7 @@ npm start           # Start both frontend and backend
 - **Backup/Restore**: Data management features
 
 ### **Technical Improvements**
+
 - **Database Migration**: PostgreSQL/MySQL integration
 - **API Optimization**: GraphQL implementation
 - **Caching**: Redis for better performance
@@ -351,6 +395,7 @@ npm start           # Start both frontend and backend
 ## 🤝 Contributing
 
 ### **Getting Started**
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
@@ -358,6 +403,7 @@ npm start           # Start both frontend and backend
 5. Open a Pull Request
 
 ### **Development Guidelines**
+
 - Follow ESLint configuration
 - Write meaningful commit messages
 - Test your changes thoroughly
@@ -379,6 +425,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 ### **Getting Help**
+
 1. Check the troubleshooting section
 2. Review the browser console for errors
 3. Ensure all dependencies are installed correctly
@@ -386,6 +433,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 5. Check network connectivity
 
 ### **Reporting Issues**
+
 - Use GitHub Issues for bug reports
 - Provide detailed error messages
 - Include steps to reproduce
@@ -395,4 +443,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for Education**
 
-*Happy Teaching! 🎓📚*
+_Happy Teaching! 🎓📚_
