@@ -171,7 +171,7 @@
     {
       "id": "b23e",
       "name": "Sayan Karmakar",
-      "rollNumber": "78",
+      "rollNumber": "12500221071",
       "email": "sk123@gmail.com",
       "phone": "7667093728",
       "class": "12A",
@@ -207,8 +207,48 @@
           "maxMarks": 100
         }
       ],
-      "createdAt": "2025-10-13T11:05:56.220Z",
-      "updatedAt": "2025-10-13T11:05:56.220Z"
+      "updatedAt": "2025-10-13T16:48:27.976Z"
+    },
+    {
+      "id": "bd22",
+      "name": "Rishav Burnwal",
+      "rollNumber": "12500221072",
+      "email": "rishav@gmail.com",
+      "phone": "846545132",
+      "class": "12B",
+      "dateOfBirth": "2003-01-08",
+      "address": "Durgapur",
+      "attendance": 83.9,
+      "totalDays": 180,
+      "presentDays": 151,
+      "grades": [
+        {
+          "subject": "Physics",
+          "grade": 81,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Mathematics",
+          "grade": 87,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Chemistry",
+          "grade": 86,
+          "maxMarks": 100
+        },
+        {
+          "subject": "English",
+          "grade": 75,
+          "maxMarks": 100
+        },
+        {
+          "subject": "Computer Science",
+          "grade": 97,
+          "maxMarks": 100
+        }
+      ],
+      "updatedAt": "2025-10-13T16:48:16.679Z"
     }
   ],
   "subjects": [

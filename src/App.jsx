@@ -3,7 +3,6 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
 import "./styles/App.css";
-
 import Footer from "./components/Footer";
 import Reports from "./components/Reports";
 import { StudentProvider } from "./components/StudentContext";
